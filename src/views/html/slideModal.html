@@ -1,0 +1,14 @@
+<div class="slide-modal container closed">
+    <div class="col-sm-3 hidden-xs left-bar"></div>
+    <div class="custom-modal-dialog col-sm-9 col-xs-12">
+        <div class="modal-wrapper">
+            <button type="button" class="close" ng-click="slideModal.close()" aria-label="Close">
+                <i aria-hidden="true" class="glyphicon glyphicon-chevron-right"></i>
+                <i aria-hidden="true" class="glyphicon glyphicon-chevron-right"></i>
+            </button>
+            <div class="modal-content post-container">
+                <div ng-include="modalContent"></div>
+            </div><!-- /.modal-content -->
+        </div>
+    </div><!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,20 @@
+<div class="col-sm-3 col-sm-3 hidden-xs left-bar">
+
+</div>
+<div class="col-md-8 col-sm-9 col-xs-12 content">
+    <div class="row post-icons">
+        <div class="post-icon-container col-md-4 col-xs-6 " ng-repeat="post in postCtrl.posts">
+            <div class="post-icon {{post.thumbnailOrientation}}" style="background-image: url('{{post.thumbnail}}')"
+                 ng-click="postCtrl.postIconClicked(post)">
+            <!--<div class="post-icon" ng-repeat="photo in post.photos">-->
+                <span class="post-title">{{post.title}}</span>
+            </div>
+        </div>
+        <div class="post-icon-container placeholder col-md-4 col-xs-6" ng-repeat="placeholder in postCtrl.placeholders"
+                ng-class="{'hidden-xs visible-md visible-lg': $last}">
+            <div class="post-icon"></div>
+        </div>
+    </div>
+</div>
+<div class="col-md-1 hidden-sm"></div>
+
