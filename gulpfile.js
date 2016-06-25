@@ -42,7 +42,7 @@ gulp.task('default', ['build'], function() {});
 
 gulp.task('dev', ['build', 'serve'], function() {});
 
-gulp.task('deploy', ['heroku'], function() {});
+gulp.task('deploy', ['build', 'heroku'], function() {});
 
 /////////////////////////////////////////////
 ////              SUBTASKS               ////
@@ -142,4 +142,38 @@ gulp.task('inject', ['compile'], function() {
 
 gulp.task('build', ['inject'], function(cb) {
     cb();
+});
+
+gulp.task('commit', function() {
+    var message = "Heroku deployment at" + Date.now().toLocaleString();
+    git.commit(message, {args: '-a'});
+});
+
+gulp.task('heroku', ['commit'], function(){
+    git.push('origin', 'master', function (err) {
+        if (err) throw err;
+    });
+});
+
+gulp.task('serve', ['build'], function() {
+    var express = require('express');
+    var app = express();
+    app.set('port', (process.env.PORT || 5000));
+
+    app.use(express.static(__dirname + '/dist/public'));
+    app.use(express.static(__dirname + '/dist/assets'));
+    app.use(express.static(__dirname + '/dist/views/html'));
+
+    // views is directory for all template files
+    app.set('views', __dirname + '/dist/views');
+    app.engine('html', require('ejs').renderFile);
+    app.set('view engine', 'html');
+
+    app.get('/', function(request, response) {
+        response.render('pages/index');
+    });
+
+    app.listen(app.get('port'), function() {
+        console.log('Node app is running on port', app.get('port'));
+    });
 });
