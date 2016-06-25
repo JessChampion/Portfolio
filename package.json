@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.2.5",
-  "description": "A sample Node.js app using Express 4",
+  "name": "Jess Makes Things",
+  "version": "0.2.0",
+  "description": "A creative portfolio",
   "engines": {
     "node": "5.9.1"
   },
@@ -25,14 +25,5 @@
     "gulp-ruby-sass": "^2.0.6",
     "gulp-run": "^1.7.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
   "license": "MIT"
 }

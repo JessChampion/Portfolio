@@ -4,11 +4,8 @@ var gulp = require('gulp'),
     bower = require('gulp-bower'),
     run = require('gulp-run'),
     bowerFiles = require('main-bower-files'),
-    // es = require('event-stream'),
-    // gulp = require('gulp'),
     git = require('gulp-git'),
     sass = require('gulp-ruby-sass')
-    // notify = require("gulp-notify");
 ;
 
 
@@ -102,17 +99,6 @@ gulp.task('compile', ['bower','compass','js', 'html', 'assets'], function(cb) {
     cb();
 });
 
-
-//----------sync-group-src----------//
-
-// gulp.task('src', ['bower'], function() {
-//     gulp.src('src/views/**/*.*').pipe(gulp.dest(DEST.dist+'/views'));
-//     gulp.src('src/assets/**/*.*').pipe(gulp.dest(DEST.dist+'/public/assets'));
-//     gulp.src('src/scripts/**/*.*').pipe(gulp.dest(DEST.dist+'/public/scripts'));
-// });
-
-
-
 //----------sync-inject----------//
 gulp.task('inject', ['compile'], function() {
     return gulp.src('./dist/views/pages/index.html')
@@ -155,7 +141,7 @@ gulp.task('heroku', ['commit'], function(){
     });
 });
 
-gulp.task('serve', ['build'], function() {
+gulp.task('serve', function() {
     var express = require('express');
     var app = express();
     app.set('port', (process.env.PORT || 5000));
