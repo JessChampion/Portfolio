@@ -1,0 +1,131 @@
+{
+  "posts": [
+    {
+      "id": 60330642689,
+      "type": "text",
+      "date": "2013",
+      "timestamp": 1378352040,
+      "tags": [
+        "tech",
+        "work",
+        "metservice",
+        "weathertrak",
+        "ios",
+        "objective-c",
+        "java"
+      ],
+      "title": "Aviation iPad App",
+      "content":"assets/posts/AviationIpadApp.html",
+      "thumbnail":"assets/media/aviationIpad1.png",
+      "thumbnailOrientation":"portrait"
+    },
+    {
+      "id": 60323062510,
+      "type": "text",
+      "date": "2012",
+      "timestamp": 1378346940,
+      "tags": [
+        "tech",
+        "work",
+        "metservice",
+        "metconnect",
+        "javascript",
+        "htmlcss"
+      ],
+      "title": "Graphic Design",
+      "content":"assets/posts/GraphicDesign.html",
+      "thumbnail":"assets/media/graphicDesignAfter.gif",
+      "thumbnailOrientation":"landscape"
+    },
+    {
+      "id": 60315518464,
+      "type": "video",
+      "date": "2012",
+      "timestamp": 1378342020,
+      "tags": [
+        "tech",
+        "work",
+        "metservice",
+        "metconnect",
+        "java",
+        "javascript",
+        "html",
+        "css"
+      ],
+      "title": "MetConnect International",
+      "content": "assets/posts/Metconnect.html",
+      "permalink_url": "https://www.youtube.com/watch?v=raf0kS2kIkQ",
+      "html5_capable": true,
+      "thumbnail_url": "https://i.ytimg.com/vi/raf0kS2kIkQ/hqdefault.jpg",
+      "thumbnail_width": 480,
+      "thumbnail_height": 360,
+      "player": [
+        {
+          "width": 250,
+          "embed_code": "<iframe width=\"250\" height=\"141\"  id=\"youtube_iframe\" src=\"https://www.youtube.com/embed/raf0kS2kIkQ?feature=oembed&amp;enablejsapi=1&amp;origin=http://safe.txmblr.com&amp;wmode=opaque\" frameborder=\"0\" allowfullscreen></iframe>"
+        },
+        {
+          "width": 400,
+          "embed_code": "<iframe width=\"400\" height=\"225\"  id=\"youtube_iframe\" src=\"https://www.youtube.com/embed/raf0kS2kIkQ?feature=oembed&amp;enablejsapi=1&amp;origin=http://safe.txmblr.com&amp;wmode=opaque\" frameborder=\"0\" allowfullscreen></iframe>"
+        },
+        {
+          "width": 500,
+          "embed_code": "<iframe width=\"500\" height=\"281\"  id=\"youtube_iframe\" src=\"https://www.youtube.com/embed/raf0kS2kIkQ?feature=oembed&amp;enablejsapi=1&amp;origin=http://safe.txmblr.com&amp;wmode=opaque\" frameborder=\"0\" allowfullscreen></iframe>"
+        }
+      ],
+      "video_type": "youtube",
+      "thumbnail":"assets/media/metconnectThumbnail.jpg",
+      "thumbnailOrientation":"landscape"
+    },
+    {
+      "id": 60257898036,
+      "type": "text",
+      "date": "2011",
+      "timestamp": 1378288500,
+      "tags": [
+        "tech",
+        "uni",
+        "honors",
+        "csharp"
+      ],
+      "title": "Honors Project",
+      "body": "<p>The goal of my project was to create a tool for collaborative distributed planning on software development projects. The system I created utilised Anoto digital pens; to  support and enhance the tried and tested agile planning technique of using stories and index cards. </p>\n<p><strong>Anoto pens:</strong></p>\n<p><span>The Anoto pen looks and feels like a traditional ball point pen but, it is amalgamated with a digital camera, an advanced image microprocessor, and a Bluetooth transmitter. When a user writes on paper augmented with the Anoto dot pattern the camera in the pen reads these dots, and uses the pattern to uniquely identify the pens exact location. The location of the pen is streamed via Bluetooth so that computer software can receive the information and process it to create a digital copy of the markings on the Anoto paper.</span><strong><img alt=\"image\" src=\"http://33.media.tumblr.com/9a9adcd2250c8aa6ea1651a3c7e764cc/tumblr_inline_mslg7tcIbm1qz4rgp.png\"/></strong></p>\n<p>Below are images of the Anoto dot pattern. On the left is the pattern with no magnification and on the right magnified 1000 times.</p>\n<p><img alt=\"image\" src=\"http://33.media.tumblr.com/daeda75bd668ac7ea4a1d5e0de9ee6bb/tumblr_inline_mslgjq55z51qz4rgp.png\"/></p>\n\n<p><strong>The tool:</strong></p>\n<p>The system I developed utilised Anoto digital pens to create a tool that would keep a digital replica of a physical agile board.</p>\n<p>User writes on an Anoto paper card with the Anoto pen:</p>\n<p><img alt=\"image\" src=\"http://33.media.tumblr.com/42252eaf45369a0aec78221e47e2e954/tumblr_inline_mslhifYiSq1qz4rgp.png\"/></p>\n\n<p>The physical card is replicated in the system:</p>\n<p><img alt=\"image\" src=\"http://33.media.tumblr.com/44ceae4d42680344cf4547ef5b55e0d5/tumblr_inline_mslhik2yhu1qz4rgp.png\"/></p>\n\n<p>The annotated user attaching the card to the wall by drawing a line across the corner:</p>\n<p><img alt=\"image\" src=\"http://33.media.tumblr.com/bcc280d6e9f4cca3c0b9925914223993/tumblr_inline_mslhivRjTO1qz4rgp.png\"/></p>\n\n<p>This means that an exact replication of the physical board can be maintained by the system:</p>\n<p><img alt=\"image\" src=\"http://33.media.tumblr.com/31bafd626256ada791d99f1eaf7a21bb/tumblr_inline_mslhj5r8o61qz4rgp.png\"/></p>\n<p><img alt=\"image\" src=\"http://33.media.tumblr.com/6ac5aa7cdb4a1e117e2fad49ec64e283/tumblr_inline_mslhjdflco1qz4rgp.png\"/></p>\n\n<p>There is also a deck view which allows the user to flip through all the cards entered into the system, check the text recognition results and view the history of the cards position on the board:</p>\n<p><img alt=\"image\" src=\"http://38.media.tumblr.com/68776d1288f7742d77dae96dda4003d4/tumblr_inline_mslhjqW4NM1qz4rgp.png\"/></p>",
+      "content":"assets/posts/Honors.html",
+      "thumbnail":"assets/media/honors1.png",
+      "thumbnailOrientation":"landscape"
+    },
+    {
+      "id": 60255058479,
+      "type": "text",
+      "date": "2010 - 2011",
+      "timestamp": 1378283220,
+      "tags": [
+        "tech",
+        "work",
+        "stream",
+        "php",
+        "htmlcss"
+      ],
+      "title": "Stream Ticketing",
+      "content":"assets/posts/Stream.html",
+      "thumbnail":"assets/media/stream1.png",
+      "thumbnailOrientation":"landscape"
+    },
+    {
+      "id": 60240329451,
+      "type": "video",
+      "date": "2010 - 2011",
+      "timestamp": 1378266060,
+      "tags": [
+        "tech",
+        "uni",
+        "imagineCup",
+        "csharp"
+      ],
+      "title": "Imagine cup - Taiao",
+      "content": "assets/posts/Taiao.html",
+      "thumbnail":"assets/media/taiaoThumbnail.jpg",
+      "thumbnailOrientation":"landscape"
+    }
+  ]
+}
