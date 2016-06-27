@@ -39,8 +39,6 @@ gulp.task('default', ['build'], function() {});
 
 gulp.task('dev', ['build', 'serve'], function() {});
 
-gulp.task('deploy', ['build', 'heroku'], function() {});
-
 /////////////////////////////////////////////
 ////              SUBTASKS               ////
 /////////////////////////////////////////////

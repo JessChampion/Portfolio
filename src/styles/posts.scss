@@ -1,6 +1,7 @@
 @import "vars";
 
 .post-icon-container{
+  position: relative;
   padding: 0 5px 10px;
   &.placeholder{
     .post-icon{
@@ -16,9 +17,9 @@
   max-height: 100%;
   border-radius: 4px;
   border: 15px solid $offWhite;
-  background: $offWhite center no-repeat;
+  background: $offWhite top no-repeat;
   background-size: contain;
-  overflow: hidden;
+  overflow: visible;
   &.landscape{
 
   }
@@ -27,16 +28,34 @@
     display:block;
     margin-top: 98%;
   }
+
   .post-title{
+    background: $bg-dark;
     position: absolute;
-    top: 0;
+    bottom: 6%;
+    left: 0;
+    width: 100%;
     padding: 5px;
-    font-size: 24px;
+    font-size: 18px;
     color: $title-text-emp;
-    text-shadow: 0 0 6px black;
     text-align: center;
+    &:before, &:after{
+      content:"";
+      position: absolute;
+      z-index: 1000;
+      top: 0;
+      left: -15px;
+      background: $bg-dark;
+      display:block;
+      width: 15px;
+      height: 100%;
+    }
+    &:after{
+      left: 100%;
+    }
   }
 }
+
 
 .post-container{
   height: 100%;
