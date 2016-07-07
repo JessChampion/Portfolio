@@ -23,9 +23,9 @@
   margin-top: 98%;
 }
 .post-icon .post-title {
-  background: #39394a;
+  background: navy;
   position: absolute;
-  bottom: 7.5%;
+  bottom: 6%;
   left: 0;
   width: 100%;
   padding: 5px;
@@ -39,7 +39,7 @@
   z-index: 1000;
   top: 0;
   left: -15px;
-  background: #39394a;
+  background: navy;
   display: block;
   width: 15px;
   height: 100%;

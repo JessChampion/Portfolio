@@ -20,10 +20,12 @@
     "gulp-compass": "^2.1.0",
     "gulp-git": "^1.7.2",
     "gulp-inject": "^4.1.0",
+    "gulp-livereload": "^3.8.1",
     "gulp-main-bower-files": "^1.5.1",
     "gulp-notify": "^2.2.0",
     "gulp-ruby-sass": "^2.0.6",
-    "gulp-run": "^1.7.1"
+    "gulp-run": "^1.7.1",
+    "gulp-watch": "^4.3.8"
   },
   "repository": {
     "type": "git",

@@ -8,156 +8,259 @@ var gulp = require('gulp'),
     sass = require('gulp-ruby-sass')
 ;
 
-
 var SRC = {
     bower: 'bower_components',
     styles: 'src/styles',
     scripts: 'src/scripts',
     views: 'src/views',
-    assets: 'src/assets',
-    boilerplate: ['./src/.env',
-        './src/index.js',
-        './src/package.json',
-        './src/Procfile']
+    assets: 'src/assets'
 };
 
 var DEST = {
     dist:   'dist',
+    public: 'dist/public',
     bower:  'dist/public/bower_components',
-    index:  'dist/views/pages/index.html',
     styles: 'dist/public/stylesheets',
     scripts:'dist/public/scripts',
     views:  'dist/views',
-    assets: 'dist/public/assets'
+    pages:  'dist/views/pages',
+    index:  'dist/views/pages/index.html',
+    assets: 'dist/public/assets',
+    overrides: {
+        bootstrap: [
+            './dist/js/bootstrap.js',
+            './dist/css/*.min.*',
+            './dist/fonts/*.*'
+        ]
+    }
+};
+
+var PATTERN = {
+    styles: '/**/*.scss',
+    css: '/**/*.css',
+    scripts: '/**/*.js',
+    all: '/**/*.*'
 };
 
 /////////////////////////////////////////////
-////              MAINTASKS              ////
+////             MAIN TASKS              ////
 /////////////////////////////////////////////
 
 gulp.task('default', ['build'], function() {});
 
-gulp.task('dev', ['build', 'serve'], function() {});
+gulp.task('dev', ['build', 'serve'], function() {
+    gulp.watch(SRC.styles + PATTERN.styles, ['compass:live', 'inject:live']);
+    gulp.watch(SRC.scripts + PATTERN.scripts, ['js:live', 'inject:live']);
+    gulp.watch(SRC.views + PATTERN.all, ['html:live', 'inject:live']);
+    gulp.watch(SRC.assets + PATTERN.all, ['assets:live', 'inject:live']);
+    gulp.watch(SRC.bower + PATTERN.all, ['bower:live', 'inject:live']);
+    gulp.watch(SRC.bower, ['bower:live', 'inject:live']);
+});
+
+gulp.task('server', ['build', 'serve'], function() {
+  
+});
 
 /////////////////////////////////////////////
-////              SUBTASKS               ////
+////              SUB-TASKS              ////
 /////////////////////////////////////////////
 
 gulp.task('clean', function (cb) {
-    run('rm -rf '+'dist').exec();
+    run('rm -rf '+ DEST.dist).exec();
     cb();
 });
 
-//----------sync-group-bower----------//
+//------------GROUP-BOWER-----------//
+    //-------------BOWER-LIB------------//
 
-gulp.task('bower:lib', ['clean'], function() {
-    //run bower install
-    return bower()
-        .pipe(gulp.dest(SRC.bower))
-});
+        function runBowerLib() {
+            //run bower install
+            return bower()
+                .pipe(gulp.dest(SRC.bower));
+        }
 
-gulp.task('bower:include', ['bower:lib'], function() {
-    //copy files to dist
-    return gulp.src(SRC.bower + '/**/*.*')
-        .pipe(gulp.dest(DEST.bower))
-});
+        gulp.task('bower:lib', ['clean'], function() {
+            return runBowerLib();
+        });
 
+        gulp.task('bower:lib:live', function() {
+            return runBowerLib();
+        });
 
-gulp.task('bower', ['bower:lib','bower:include'], function(cb) {
-    cb();
-});
+    //-----------END-BOWER-LIB----------//
+    //-----------BOWER-INCLUDE----------//
 
-//----------sync-group-src----------//
+        function runBowerInclude() {
+            //copy files to dist
+            return gulp.src(SRC.bower + PATTERN.all)
+                .pipe(gulp.dest(DEST.bower));
+        }
 
-gulp.task('compass', ['bower'], function() {
-    return gulp.src(SRC.styles + '/*.scss')
-        .pipe(compass({
-            css: DEST.styles,
-            sass: SRC.styles
-        }))
-        .pipe(gulp.dest(DEST.styles));
-});
+        gulp.task('bower:include', ['bower:lib'], function() {
+            return runBowerInclude();
+        });
 
-gulp.task('js', ['bower'], function () {
-    return gulp.src(SRC.scripts + '/**/*.js')
-        .pipe(gulp.dest(DEST.scripts));
-});
+        gulp.task('bower:include:live', ['bower:lib:live'], function() {
+            return runBowerInclude();
+        });
 
-gulp.task('html', ['bower'], function () {
-    return gulp.src(SRC.views+'/**/*.*')
-        .pipe(gulp.dest(DEST.views));
-});
+    //---------END-BOWER-INCLUDE--------//
 
-gulp.task('assets', ['bower'], function () {
-    return gulp.src(SRC.assets+'/**/*.*')
-        .pipe(gulp.dest(DEST.assets));
-});
+    gulp.task('bower', ['bower:lib','bower:include'], function(cb) {
+        cb();
+    });
 
-gulp.task('compile', ['bower','compass','js', 'html', 'assets'], function(cb) {
-    cb();
-});
+    gulp.task('bower:live', ['bower:lib:live','bower:include:live'], function(cb) {
+        cb();
+    });
 
-//----------sync-inject----------//
-gulp.task('inject', ['compile'], function() {
-    return gulp.src('./dist/views/pages/index.html')
-        .pipe(inject(gulp.src(bowerFiles(
-            {
-                overrides: {
-                    bootstrap: {
-                        main: [
-                            './dist/js/bootstrap.js',
-                            './dist/css/*.min.*',
-                            './dist/fonts/*.*'
-                        ]
+//----------END-GROUP-BOWER---------//
+//----------GROUP-COMPILE-----------//
+    //-------------COMPASS--------------//
+
+        function runCompass() {
+            return gulp.src(SRC.styles + PATTERN.styles)
+                .pipe(compass({
+                    css: DEST.styles,
+                    sass: SRC.styles
+                }))
+                .pipe(gulp.dest(DEST.styles));
+        }
+
+        gulp.task('compass', ['bower'], function() {
+            return runCompass();
+        });
+
+        gulp.task('compass:live', function() {
+            return runCompass();
+        });
+
+    //-----------END-COMPASS------------//
+    //----------------JS----------------//
+
+        function runJs() {
+            return gulp.src(SRC.scripts + PATTERN.scripts)
+                .pipe(gulp.dest(DEST.scripts));
+        }
+
+        gulp.task('js', ['bower'], function () {
+            return runJs();
+        });
+
+        gulp.task('js:live', function () {
+            return runJs();
+        });
+
+    //--------------END-JS--------------//
+    //---------------HTML---------------//
+
+        function runHtml() {
+            return gulp.src(SRC.views + PATTERN.all)
+                .pipe(gulp.dest(DEST.views));
+        }
+
+        gulp.task('html', ['bower'], function () {
+            return runHtml();
+        });
+
+        gulp.task('html:live', function () {
+            return runHtml();
+        });
+
+    //-------------END-HTML-------------//
+    //--------------ASSETS--------------//
+
+        function runAssets() {
+            return gulp.src(SRC.assets + PATTERN.all)
+                .pipe(gulp.dest(DEST.assets));
+        }
+
+        gulp.task('assets', ['bower'], function () {
+            return runAssets();
+        });
+
+        gulp.task('assets:live', function () {
+            return runAssets();
+        });
+
+    //------------END-ASSETS------------//
+
+    gulp.task('compile', ['bower','compass','js', 'html', 'assets'], function(cb) {
+        cb();
+    });
+
+//--------END-GROUP-COMPILE---------//
+//----------GROUP-INJECT------------//
+
+    function runInject() {
+        return gulp.src(DEST.index)
+            .pipe(inject(gulp.src(bowerFiles(
+                {
+                    overrides: {
+                        bootstrap: {
+                            main: DEST.overrides.bootstrap
+                        }
+                    },
+                    paths: {
+                        bowerDirectory: DEST.bower,
+                        bowerJson: 'bower.json'
                     }
-                },
-                paths: {
-                    bowerDirectory: './dist/public/bower_components',
-                    bowerJson: 'bower.json'
-                }
-            })),{name:'bower', ignorePath:'/dist/public/' }))
-        .pipe(inject(gulp.src(
-            ['./dist/public/scripts/**/*.js', './dist/public/stylesheets/**/*.css'], {read: false}),
-            {ignorePath:'/dist/public/'}))
-        .pipe(gulp.dest('./dist/views/pages/'));
-});
+                })),{name:'bower', ignorePath: DEST.public }))
+            .pipe(inject(gulp.src(
+                [ DEST.scripts + PATTERN.scripts, DEST.styles + PATTERN.css], {read: false}),
+                {ignorePath: DEST.public}))
+            .pipe(gulp.dest(DEST.pages));
+    }
 
-//----------sync-actions----------//
-
-gulp.task('build', ['inject'], function(cb) {
-    cb();
-});
-
-gulp.task('commit', function() {
-    var message = "Heroku deployment at" + Date.now().toLocaleString();
-    git.commit(message, {args: '-a'});
-});
-
-gulp.task('heroku', ['commit'], function(){
-    git.push('origin', 'master', function (err) {
-        if (err) throw err;
-    });
-});
-
-gulp.task('serve', function() {
-    var express = require('express');
-    var app = express();
-    app.set('port', (process.env.PORT || 5000));
-
-    app.use(express.static(__dirname + '/dist/public'));
-    app.use(express.static(__dirname + '/dist/assets'));
-    app.use(express.static(__dirname + '/dist/views/html'));
-
-    // views is directory for all template files
-    app.set('views', __dirname + '/dist/views');
-    app.engine('html', require('ejs').renderFile);
-    app.set('view engine', 'html');
-
-    app.get('/', function(request, response) {
-        response.render('pages/index');
+    gulp.task('inject', ['compile'], function() {
+        return runInject()
     });
 
-    app.listen(app.get('port'), function() {
-        console.log('Node app is running on port', app.get('port'));
+    gulp.task('inject:live', function() {
+        return runInject()
     });
-});
+
+//--------END-GROUP-INJECT----------//
+//------------GROUP-GIT-------------//
+
+    gulp.task('commit', function() {
+        var message = "Heroku deployment at" + Date.now().toLocaleString();
+        git.commit(message, {args: '-a'});
+    });
+
+    gulp.task('push', ['commit'], function(){
+        git.push('origin', 'master', function (err) {
+            if (err) throw err;
+        });
+    });
+
+//----------END-GROUP-GIT-----------//
+//----------GROUP-ACTIONS-----------//
+
+    gulp.task('build', ['inject'], function(cb) {
+        cb();
+    });
+
+    gulp.task('serve', function() {
+        var express = require('express');
+        var app = express();
+        app.set('port', (process.env.PORT || 5000));
+
+        app.use(express.static(__dirname + '/dist/public'));
+        app.use(express.static(__dirname + '/dist/assets'));
+        app.use(express.static(__dirname + '/dist/views/html'));
+
+        // views is directory for all template files
+        app.set('views', __dirname + '/dist/views');
+        app.engine('html', require('ejs').renderFile);
+        app.set('view engine', 'html');
+
+        app.get('/', function(request, response) {
+            response.render('pages/index');
+        });
+
+        app.listen(app.get('port'), function() {
+            console.log('Node app is running on port', app.get('port'));
+        });
+    });
+//--------END-GROUP-ACTIONS---------//
