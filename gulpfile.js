@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     run = require('gulp-run'),
     bowerFiles = require('main-bower-files'),
     git = require('gulp-git'),
-    sass = require('gulp-ruby-sass')
+    sass = require('gulp-ruby-sass'),
+    livereload = require('gulp-livereload')
 ;
 
 var SRC = {
@@ -13,7 +14,8 @@ var SRC = {
     styles: 'src/styles',
     scripts: 'src/scripts',
     views: 'src/views',
-    assets: 'src/assets'
+    assets: 'src/assets',
+    images: 'src/images'
 };
 
 var DEST = {
@@ -26,6 +28,7 @@ var DEST = {
     pages:  'dist/views/pages',
     index:  'dist/views/pages/index.html',
     assets: 'dist/public/assets',
+    images: 'dist/public/images',
     overrides: {
         bootstrap: [
             './dist/js/bootstrap.js',
@@ -48,18 +51,26 @@ var PATTERN = {
 
 gulp.task('default', ['build'], function() {});
 
-gulp.task('dev', ['build', 'serve'], function() {
-    gulp.watch(SRC.styles + PATTERN.styles, ['compass:live', 'inject:live']);
-    gulp.watch(SRC.scripts + PATTERN.scripts, ['js:live', 'inject:live']);
-    gulp.watch(SRC.views + PATTERN.all, ['html:live', 'inject:live']);
-    gulp.watch(SRC.assets + PATTERN.all, ['assets:live', 'inject:live']);
-    gulp.watch(SRC.bower + PATTERN.all, ['bower:live', 'inject:live']);
-    gulp.watch(SRC.bower, ['bower:live', 'inject:live']);
+gulp.task('serve', ['build', 'server'], function() {});
+
+gulp.task('dev', ['serve'], function() {
+    livereload.listen();
+
+    gulp.watch(SRC.styles + PATTERN.styles, ['compass:live']);
+    gulp.watch(SRC.scripts + PATTERN.scripts, ['js:live']);
+    gulp.watch(SRC.views + PATTERN.all, ['html:live']);
+    gulp.watch(SRC.assets + PATTERN.all, ['assets:live']);
+    gulp.watch(SRC.images + PATTERN.all, ['images:live']);
+    gulp.watch(SRC.bower + PATTERN.all, ['bower:live']);
+
+    gulp.watch(DEST.dist + PATTERN.all)
+        .on("change", function(file) {
+        gulp.src(file.path)
+            .pipe(livereload())
+    });
+
 });
 
-gulp.task('server', ['build', 'serve'], function() {
-  
-});
 
 /////////////////////////////////////////////
 ////              SUB-TASKS              ////
@@ -111,6 +122,7 @@ gulp.task('clean', function (cb) {
     });
 
     gulp.task('bower:live', ['bower:lib:live','bower:include:live'], function(cb) {
+        runInject();
         cb();
     });
 
@@ -132,7 +144,8 @@ gulp.task('clean', function (cb) {
         });
 
         gulp.task('compass:live', function() {
-            return runCompass();
+            runCompass();
+            runInject();
         });
 
     //-----------END-COMPASS------------//
@@ -148,7 +161,8 @@ gulp.task('clean', function (cb) {
         });
 
         gulp.task('js:live', function () {
-            return runJs();
+            runJs();
+            runInject();
         });
 
     //--------------END-JS--------------//
@@ -164,10 +178,27 @@ gulp.task('clean', function (cb) {
         });
 
         gulp.task('html:live', function () {
-            return runHtml();
+            runHtml();
+            runInject();
         });
 
     //-------------END-HTML-------------//
+    //--------------IMAGES--------------//
+
+        function runImages() {
+            return gulp.src(SRC.images + PATTERN.all)
+                .pipe(gulp.dest(DEST.images));
+        }
+
+        gulp.task('images', ['bower'], function () {
+            return runImages();
+        });
+
+        gulp.task('images:live', function () {
+            return runImages();
+        });
+
+    //------------END-IMAGES------------//
     //--------------ASSETS--------------//
 
         function runAssets() {
@@ -185,7 +216,7 @@ gulp.task('clean', function (cb) {
 
     //------------END-ASSETS------------//
 
-    gulp.task('compile', ['bower','compass','js', 'html', 'assets'], function(cb) {
+    gulp.task('compile', ['bower','compass','js', 'html', 'images', 'assets'], function(cb) {
         cb();
     });
 
@@ -216,10 +247,6 @@ gulp.task('clean', function (cb) {
         return runInject()
     });
 
-    gulp.task('inject:live', function() {
-        return runInject()
-    });
-
 //--------END-GROUP-INJECT----------//
 //------------GROUP-GIT-------------//
 
@@ -241,7 +268,7 @@ gulp.task('clean', function (cb) {
         cb();
     });
 
-    gulp.task('serve', function() {
+    gulp.task('server', function() {
         var express = require('express');
         var app = express();
         app.set('port', (process.env.PORT || 5000));
