@@ -105,8 +105,10 @@
 
   .post-image{
     width: 100%;
+    max-width: 600px;
     height: auto;
     z-index: 1000;
+    border: 1px solid $accent-grey;
   }
 
   .video-container, .picture-container{
@@ -118,6 +120,12 @@
       max-width: 600px;
     }
     &.xs{
+      video,img{
+        width: 100%;
+        max-width: 450px;
+      }
+    }
+    &.xxs{
       video,img{
         width: 100%;
         max-width: 450px;
@@ -138,9 +146,24 @@
   }
 }
 
+@media screen and (min-width: 990px) and (max-width: 1215px) {
+  .post-icon {
+    .post-title {
+      font-size: 16px;
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   .posts{
     padding: 0 25px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .post-icon {
+    .post-title {
+      font-size: 16px;
+    }
   }
 }

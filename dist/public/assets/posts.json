@@ -1,27 +1,6 @@
 {
   "posts": [
     {
-      "id": 8,
-      "type": "text",
-      "date": "2015",
-      "timestamp": 1378352040,
-      "tags": [
-        "tech",
-        "work",
-        "solnet",
-        "farmsource",
-        "javascript",
-        "angular",
-        "silverstripe",
-        "responsive",
-        "java"
-      ],
-      "title": "Jess Makes Things",
-      "content":"assets/posts/JessMakesThings.html",
-      "thumbnail":"assets/media/JMTThumbnail.png",
-      "thumbnailOrientation":"portrait"
-    },
-    {
       "id": 7,
       "type": "text",
       "date": "2014",

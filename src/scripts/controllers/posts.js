@@ -24,9 +24,11 @@ angular.module('jessMakesThingsApp')
 
         });
 
+
         $scope.postCtrl.createPlaceholders = function(placeholderArray, length){
-          for(var x=0; x<(length % 3); x++){
-            placeholderArray.push(x);
-          }
+            var placeholdersRequired = 3 - (length % 3);
+            for(var x=0; x<placeholdersRequired; x++){
+                placeholderArray.push(x);
+            }
         };
   });

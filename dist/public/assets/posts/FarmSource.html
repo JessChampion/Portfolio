@@ -2,20 +2,35 @@
   <a href="nzfarmsource.co.nz" target="_blank">Fonterra Farm Source</a>
   was the first major project I was involved on during my time at Solnet.
   The project was a complete rebuild of Fonterra online farmer portal (previously called Fencepost).
-  This has been a long running project, I was involved from the very as a part small team working on the first pieces of core functionality.
-  I worked mostly with the HTML/CSS and javascript code: implimenting
+  I was involved from the very early stages of the project, and primarily handled the frontend development on some of the core pieces of functionality.
 </p>
+<div class="picture-container sm">
+  <img class="post-image" alt="image" src="assets\media\FS-Homepage-Desktop.png">
+</div>
 <p>
-  The front end of Farm Source is built on SilverStripe CMS. To achieve the required level of interactivity,
-  we integrated Angular JS with SilverStripe. At the time this was an innovative combination of technologies, and took some
-  The back end is a Java application the uses ETL to ingest data from a variety of Fonterra's core data systems.
-  It provides access to the data via a rest api, which is also used by the Farm Source mobile app.
+  The front end of Farm Source is built on SilverStripe CMS integrated AngularJS.
+  This combination of technologies allowed us to achieve a more interactive user experience, than achievable with a standard SilverStripe website.
+  To encourage the quality and maintainability of the project; I set up and encouraged the adoption of frontend unit testing with Jasmine and karma.
+  I was also responsible for developing and documenting the frontend coding and styling standards for the project.
 </p>
 <h4 class="post-subtitle">Responsive design</h4>
 <p>
-  Much of the Farm Source site is responsive,
-</p>
-<h4 class="post-subtitle">MQP and Custom reports</h4>
-<p>
+  Much of the Farm Source site is responsive. This was achieved using a combination of bootstrap grid layouts and custom media queries.
+  My preferred technique for responsive website is not to focus on device sizes.
+  Rather I like start with the mobile designs, then adjust the screen size up, adding in breakpoints based on the needs of the design.until the layout no longer looks good, just befr until it breaks
+  The advantages of this approach is that the layout will support all screen sizes, making the layout more future proof.
 
+  Due to time restraints and usability testing schedules, we often had to start development with just the desktop design.
+  In these cases I reversed this process and coded desktop first. I would then liase with the designers about our options of the mobile views,
+  helping to balance usability with technical feasibility and efficiency.
 </p>
+<div class="picture-container xxs">
+<div class="post-caption">Mobile view:</div>
+<img class="post-image" alt="image" src="assets\media\FS-MPQ-Mobile.png"/>
+</div>
+<div class="picture-container sm">
+<div class="post-caption">Tablet view:</div>
+<img class="post-image" alt="image" src="assets\media\FS-MPQ-Tablet.png"/>
+</div>
+<div class="post-caption">Desktop view:</div>
+<img class="post-image" alt="image" src="assets\media\FS-MPQ-Desktop.png"/>

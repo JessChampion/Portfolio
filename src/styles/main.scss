@@ -190,6 +190,11 @@ body {
 .modal-backdrop.slide-modal-backdrop{
   background: none;
 }
+@media screen and (min-width: 990px) and (max-width: 1215px) {
+  .icon-column{
+    width: 75%;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .header{
