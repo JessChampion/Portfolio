@@ -133,6 +133,15 @@
     padding: 0 25px;
   }
 }
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .post-icons {
+    padding: 0 20px;
+  }
+
+  .post-icon-container {
+    padding: 0 10px 10px;
+  }
+}
 @media screen and (max-width: 510px) {
   .post-icon .post-title {
     font-size: 16px;
