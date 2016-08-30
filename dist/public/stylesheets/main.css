@@ -203,7 +203,7 @@ body {
   .header h1 {
     text-align: center;
     width: 100%;
-    margin: -2px -15px 0;
+    margin: -2px auto 0;
   }
   .header h1 span {
     display: inline-block;
@@ -279,8 +279,17 @@ body {
   }
 }
 @media screen and (max-width: 420px) {
-  .header h1 {
-    width: calc(100% + 10px);
-    margin: 0 -11px;
+  .header h1 .jess {
+    font-size: 30px;
+  }
+  .header h1 .makes {
+    position: relative;
+    top: -3px;
+    margin: 0 0 0 -20px;
+    font-size: 27px;
+  }
+  .header h1 .things {
+    margin: 0 0 0 -19px;
+    font-size: 30px;
   }
 }

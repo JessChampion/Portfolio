@@ -144,3 +144,13 @@
     padding: 5px 0px;
   }
 }
+@media screen and (max-width: 400px) {
+  .post-icon .post-title {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .post-icon .post-title {
+    font-size: 10.5px;
+  }
+}
