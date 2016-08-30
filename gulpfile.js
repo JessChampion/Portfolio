@@ -15,6 +15,7 @@ var SRC = {
     scripts: 'src/scripts',
     views: 'src/views',
     assets: 'src/assets',
+    fonts: 'src/fonts',
     images: 'src/images'
 };
 
@@ -28,6 +29,7 @@ var DEST = {
     pages:  'dist/views/pages',
     index:  'dist/views/pages/index.html',
     assets: 'dist/public/assets',
+    fonts:  'dist/public/fonts',
     images: 'dist/public/images',
     overrides: {
         bootstrap: [
@@ -60,6 +62,7 @@ gulp.task('dev', ['serve'], function() {
     gulp.watch(SRC.scripts + PATTERN.scripts, ['js:live']);
     gulp.watch(SRC.views + PATTERN.all, ['html:live']);
     gulp.watch(SRC.assets + PATTERN.all, ['assets:live']);
+    gulp.watch(SRC.fonts + PATTERN.all, ['fonts:live']);
     gulp.watch(SRC.images + PATTERN.all, ['images:live']);
     gulp.watch(SRC.bower + PATTERN.all, ['bower:live']);
 
@@ -215,8 +218,24 @@ gulp.task('clean', function (cb) {
         });
 
     //------------END-ASSETS------------//
+    //--------------FONTS--------------//
 
-    gulp.task('compile', ['bower','compass','js', 'html', 'images', 'assets'], function(cb) {
+    function runFonts() {
+        return gulp.src(SRC.fonts + PATTERN.all)
+            .pipe(gulp.dest(DEST.fonts));
+    }
+
+    gulp.task('fonts', ['bower'], function () {
+        return runFonts();
+    });
+
+    gulp.task('fonts:live', function () {
+        return runFonts();
+    });
+
+    //------------END-FONTS------------//
+
+    gulp.task('compile', ['bower','compass','js', 'html', 'images', 'assets', 'fonts'], function(cb) {
         cb();
     });
 

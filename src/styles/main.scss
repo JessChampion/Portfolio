@@ -1,4 +1,5 @@
 @import "vars";
+@import "fonts";
 
 .browsehappy {
   margin: 0.2em 0;
@@ -60,7 +61,7 @@ body {
       margin: 0 0 -27px 0px;
       font-size: 60px;
       font-style: italic;
-      font-family: "fox in the snow";
+      font-family: FoxInTheSnow, Palatino, cursive, serif;
       color: $title-text-emp;
       font-weight: bold;
     }
