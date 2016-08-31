@@ -133,8 +133,8 @@ body {
 .slide-modal .close {
   float: none;
   position: absolute;
-  left: 10px;
-  top: 25px;
+  left: 3px;
+  top: 14px;
   z-index: 100;
 }
 .slide-modal .close .glyphicon {
@@ -195,9 +195,9 @@ body {
 @media screen and (max-width: 767px) {
   .header {
     z-index: 500;
-    height: 55px;
-    margin: 0;
-    padding: 0 30px;
+    height: 60px;
+    margin: -50px 0 0;
+    padding: 60px 30px;
     left: 0;
   }
   .header h1 {
@@ -235,11 +235,6 @@ body {
     padding: 0 15px;
   }
 
-  .slide-modal .post-header {
-    margin: 0 7px;
-    padding: 15px 8px 0;
-    height: 45px;
-  }
   .slide-modal .modal-wrapper {
     height: calc(100% - 55px);
     margin: 55px 0 0 5px;
@@ -247,10 +242,6 @@ body {
   }
   .slide-modal .modal-content {
     padding-left: 30px;
-  }
-  .slide-modal .close {
-    left: 7px;
-    top: 20px;
   }
 }
 @media screen and (max-width: 565px) {
@@ -276,6 +267,17 @@ body {
 
   .main {
     padding-top: 60px;
+  }
+
+  .slide-modal .modal-wrapper {
+    height: calc(100% - 45px);
+    margin: 50px 0 0 5px;
+    padding: 0 0 15px;
+  }
+}
+@media screen and (min-width: 511px) {
+  .slide-modal .close {
+    top: 18px;
   }
 }
 @media screen and (max-width: 420px) {

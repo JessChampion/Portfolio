@@ -56,22 +56,24 @@
 }
 
 .post-header {
-  padding: 15px 15px 0;
-  height: 45px;
+  padding: 15px 15px 5px;
 }
 .post-header .post-title {
-  position: absolute;
-  top: 14px;
+  display: inline-block;
+  max-width: calc(100% - 50px);
+  padding-right: 0;
   font-size: 28px;
-  z-index: 100;
+  line-height: 28px;
 }
 .post-header .post-date {
   float: right;
-  margin-top: -1px;
-  right: 15px;
+  display: inline-block;
   font-size: 28px;
-  z-index: 90;
+  line-height: 28px;
+  padding-top: 1px;
+  padding-left: 0;
   color: #cfcfcf;
+  text-align: right;
 }
 
 .post {
@@ -81,7 +83,7 @@
   background: #fdfdfd center no-repeat;
 }
 .post .post-body {
-  padding-right: 40px;
+  padding-right: 20px;
   padding-bottom: 45px;
 }
 .post .title {
@@ -128,9 +130,14 @@
     font-size: 16px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .posts {
     padding: 0 25px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .post-body {
+    padding-right: 40px;
   }
 }
 @media screen and (max-width: 767px) and (orientation: landscape) {
@@ -145,6 +152,11 @@
 @media screen and (max-width: 510px) {
   .post-icon .post-title {
     font-size: 16px;
+  }
+
+  .post-header .post-title, .post-header .post-date {
+    font-size: 20px;
+    line-height: 20px;
   }
 }
 @media screen and (max-width: 465px) {

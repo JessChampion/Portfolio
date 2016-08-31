@@ -56,7 +56,6 @@
   }
 }
 
-
 .post-container{
   height: 100%;
   padding-left: 47px;
@@ -65,21 +64,39 @@
 }
 
 .post-header{
-  padding: 15px 15px 0;
-  height: 45px;
+  //padding: 15px 15px 0;
+  //height: 45px;
+  //.post-title{
+  //  position: absolute;
+  //  top: 14px;
+  //  font-size: 28px;
+  //  z-index: 100;
+  //}
+  //.post-date{
+  //  float: right;
+  //  margin-top: -1px;
+  //  right:15px;
+  //  font-size: 28px;
+  //  z-index: 90;
+  //  color: $title-text-main;
+  //}
+  padding: 15px 15px 5px;
   .post-title{
-    position: absolute;
-    top: 14px;
+    display: inline-block;
+    max-width: calc(100% - 50px);
+    padding-right: 0;
     font-size: 28px;
-    z-index: 100;
+    line-height: 28px;
   }
   .post-date{
     float: right;
-    margin-top: -1px;
-    right:15px;
+    display: inline-block;
     font-size: 28px;
-    z-index: 90;
+    line-height: 28px;
+    padding-top: 1px;
+    padding-left: 0;
     color: $title-text-main;
+    text-align: right;
   }
 }
 
@@ -90,7 +107,7 @@
   background: $offWhite center no-repeat;
 
   .post-body{
-    padding-right: 40px;
+    padding-right: 20px;
     padding-bottom: 45px;
   }
 
@@ -154,9 +171,15 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .posts{
     padding: 0 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .post-body{
+    padding-right: 40px;
   }
 }
 
@@ -173,6 +196,13 @@
   .post-icon {
     .post-title {
       font-size: 16px;
+    }
+  }
+
+  .post-header{
+    .post-title, .post-date{
+      font-size: 20px;
+      line-height: 20px;
     }
   }
 }
