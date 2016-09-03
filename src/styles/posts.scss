@@ -35,8 +35,9 @@
     bottom: 6%;
     left: 0;
     width: 100%;
-    padding: 5px;
-    font-size: 18px;
+    padding: 6px 0;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
     color: $title-text-emp;
     text-align: center;
     &:before, &:after{
@@ -162,72 +163,72 @@
     }
   }
 }
+//
+//@media screen and (min-width: 990px) and (max-width: 1215px) {
+//  .post-icon {
+//    .post-title {
+//      font-size: 16px;
+//    }
+//  }
+//}
 
-@media screen and (min-width: 990px) and (max-width: 1215px) {
-  .post-icon {
-    .post-title {
-      font-size: 16px;
-    }
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .posts{
-    padding: 0 25px;
-  }
-}
-
+//@media screen and (max-width: 767px) {
+//  .posts{
+//    padding: 0 25px;
+//  }
+//}
+//
 @media screen and (min-width: 768px) {
   .post-body{
     padding-right: 40px;
   }
 }
 
-@media screen and (max-width: 767px) and (orientation:landscape) {
-  .post-icons{
-    padding: 0 20px;
-  }
-  .post-icon-container{
-    padding: 0 10px 10px;
-  }
-}
-
-@media screen and (max-width: 510px) {
-  .post-icon {
-    .post-title {
-      font-size: 16px;
-    }
-  }
-
-  .post-header{
-    .post-title, .post-date{
-      font-size: 20px;
-      line-height: 20px;
-    }
-  }
-}
-
-@media screen and (max-width: 465px) {
-  .post-icon {
-    .post-title {
-      font-size: 14px;
-      padding: 5px 0px;
-    }
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .post-icon {
-    .post-title {
-      font-size: 12px;
-    }
-  }
-}
-
-@media screen and (max-width: 360px) {
-  .post-icon {
-    .post-title {
-      font-size: 10.5px;
-    }
-  }
-}
+//@media screen and (max-width: 767px) and (orientation:landscape) {
+//  .post-icons{
+//    padding: 0 20px;
+//  }
+//  .post-icon-container{
+//    padding: 0 10px 10px;
+//  }
+//}
+//
+//@media screen and (max-width: 510px) {
+//  .post-icon {
+//    .post-title {
+//      font-size: 16px;
+//    }
+//  }
+//
+//  .post-header{
+//    .post-title, .post-date{
+//      font-size: 20px;
+//      line-height: 20px;
+//    }
+//  }
+//}
+//
+//@media screen and (max-width: 465px) {
+//  .post-icon {
+//    .post-title {
+//      font-size: 14px;
+//      padding: 5px 0px;
+//    }
+//  }
+//}
+//
+//@media screen and (max-width: 400px) {
+//  .post-icon {
+//    .post-title {
+//      font-size: 12px;
+//    }
+//  }
+//}
+//
+//@media screen and (max-width: 360px) {
+//  .post-icon {
+//    .post-title {
+//      font-size: 10.5px;
+//    }
+//  }
+//}

@@ -15,12 +15,13 @@ body {
 }
 
 .header{
-  z-index: 500;
   position: fixed;
   width: 100%;
-  height: 5px;
   background: $background;
-  padding: 5px 20px 0;
+  z-index: 500;
+  height: 110px;
+  margin: -50px 0 0;
+  padding: 60px 0 0;
 
   &:after{
     content: "";
@@ -34,44 +35,77 @@ body {
     background: linear-gradient($background, $bg-transparent);
   }
 
+  //
+  //h1{
+  //  position: absolute;
+  //  top: 0;
+  //  left: 2%;
+  //  min-width: 220px;
+  //  width: 100%;
+  //  margin: 5px 0 0;
+  //  color: $title-text-main;
+  //  text-align: center;
+  //
+  //  span{
+  //    display: block;
+  //  }
+  //  .jess{
+  //    font-size: 72px;
+  //    margin: 0 0 -32px 10px;
+  //    text-transform: uppercase;
+  //    font-weight: 900;
+  //    letter-spacing: 4px;
+  //
+  //  }
+  //  .makes{
+  //    z-index: 100;
+  //    margin: 0 0 -27px 0px;
+  //    font-size: 60px;
+  //    font-style: italic;
+  //    font-family: FoxInTheSnow, Palatino, cursive, serif;
+  //    color: $title-text-emp;
+  //    font-weight: bold;
+  //  }
+  //  .things{
+  //    z-index: -1;
+  //    margin: 0 0 0 8px;
+  //    font-size: 52px;
+  //    text-transform: uppercase;
+  //    font-weight: 900;
+  //    letter-spacing: -1px;
+  //  }
+  //}
 
   h1{
-    position: absolute;
-    top: 0;
-    left: 2%;
-    min-width: 220px;
     width: 100%;
-    margin: 5px 0 0;
     color: $title-text-main;
     text-align: center;
+    margin: 2px auto 0;
 
     span{
-      display: block;
+      display: inline-block;
+      position: relative;
     }
-    .jess{
-      font-size: 72px;
-      margin: 0 0 -32px 10px;
+    .jess, .things{
       text-transform: uppercase;
       font-weight: 900;
-      letter-spacing: 4px;
-
+      font-size: 3.1rem;
+      margin: 0;
+      letter-spacing: normal;
     }
+
     .makes{
-      z-index: 100;
-      margin: 0 0 -27px 0px;
-      font-size: 60px;
       font-style: italic;
       font-family: FoxInTheSnow, Palatino, cursive, serif;
       color: $title-text-emp;
+      font-size: 3.25rem;
       font-weight: bold;
+      top: -2px;
+      margin: 0 0 0 -18px;
     }
     .things{
       z-index: -1;
-      margin: 0 0 0 8px;
-      font-size: 52px;
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: -1px;
+      margin: 0 0 0 -18px;
     }
   }
 }
@@ -100,12 +134,12 @@ body {
 
 .main{
   margin: 0;
-  padding-top: 25px;
+  padding-top: 70px;
   z-index: 1;
 }
 
 .content{
-  padding: 0 30px 0px 50px;
+  padding: 0 25px;
 }
 
 .slide-modal{
@@ -145,7 +179,7 @@ body {
     top: 14px;
     z-index: 100;
     .glyphicon{
-      font-size: 20px;
+      font-size: 1.2px;
       font-weight: normal;
       &:last-child{
         position: relative;
@@ -191,98 +225,98 @@ body {
 .modal-backdrop.slide-modal-backdrop{
   background: none;
 }
-@media screen and (min-width: 990px) and (max-width: 1215px) {
-  .icon-column{
-    width: 75%;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .header{
-    z-index: 500;
-    height: 60px;
-    margin: -50px 0 0;
-    padding: 60px 30px;
-    left: 0;
-
-    h1{
-      text-align: center;
-      width: 100%;
-      margin: -2px auto 0;
-      span{
-        display: inline-block;
-      }
-      .jess{
-        font-size: 52px;
-        margin: 0 0 0 0;
-        letter-spacing: normal;
-      }
-      .makes{
-        position: relative;
-        top: -5px;
-        margin: 0 0 0 -30px;
-        font-size: 46px;
-      }
-      .things{
-        margin: 0 0 0 -25px;
-        font-size: 52px;
-        letter-spacing: normal;
-      }
-    }
-  }
-  .main{
-    position: relative;
-    padding-top: 65px;
-  }
-  .content{
-    position: relative;
-    padding: 0 15px;
-  }
-
-  .slide-modal {
-    .modal-wrapper {
-      height: calc(100% - 55px);
-      margin: 55px 0 0 5px;
-      padding: 0 0 15px;
-    }
-    .modal-content {
-      padding-left: 30px;
-    }
-  }
-}
-
-@media screen and (max-width: 565px) {
-  .header{
-    height: 50px;
-    h1{
-      margin-top: 2px;
-      .jess{
-        font-size: 42px;
-      }
-      .makes{
-        position: relative;
-        top: -5px;
-        margin: 0 0 0 -30px;
-        font-size: 36px;
-      }
-      .things{
-        margin: 0 0 0 -25px;
-        font-size: 42px;
-      }
-    }
-  }
-  .main{
-    padding-top: 60px;
-  }
-
-  .slide-modal {
-    .modal-wrapper {
-      height: calc(100% - 45px);
-      margin: 50px 0 0 5px;
-      padding: 0 0 15px;
-    }
-  }
-}
+//@media screen and (min-width: 990px) and (max-width: 1215px) {
+//  .icon-column{
+//    width: 75%;
+//  }
+//}
+//
+//@media screen and (max-width: 767px) {
+//  .header{
+//    z-index: 500;
+//    height: 60px;
+//    margin: -50px 0 0;
+//    padding: 60px 30px;
+//    left: 0;
+//
+//    h1{
+//      text-align: center;
+//      width: 100%;
+//      margin: -2px auto 0;
+//      span{
+//        display: inline-block;
+//      }
+//      .jess{
+//        font-size: 52px;
+//        margin: 0 0 0 0;
+//        letter-spacing: normal;
+//      }
+//      .makes{
+//        position: relative;
+//        top: -5px;
+//        margin: 0 0 0 -30px;
+//        font-size: 46px;
+//      }
+//      .things{
+//        margin: 0 0 0 -25px;
+//        font-size: 52px;
+//        letter-spacing: normal;
+//      }
+//    }
+//  }
+//  .main{
+//    position: relative;
+//    padding-top: 65px;
+//  }
+//  .content{
+//    position: relative;
+//    padding: 0 15px;
+//  }
+//
+//  .slide-modal {
+//    .modal-wrapper {
+//      height: calc(100% - 55px);
+//      margin: 55px 0 0 5px;
+//      padding: 0 0 15px;
+//    }
+//    .modal-content {
+//      padding-left: 30px;
+//    }
+//  }
+//}
+//
+//@media screen and (max-width: 565px) {
+//  .header{
+//    height: 50px;
+//    h1{
+//      margin-top: 2px;
+//      .jess{
+//        font-size: 42px;
+//      }
+//      .makes{
+//        position: relative;
+//        top: -5px;
+//        margin: 0 0 0 -30px;
+//        font-size: 36px;
+//      }
+//      .things{
+//        margin: 0 0 0 -25px;
+//        font-size: 42px;
+//      }
+//    }
+//  }
+//  .main{
+//    padding-top: 60px;
+//  }
+//
+//  .slide-modal {
+//    .modal-wrapper {
+//      height: calc(100% - 45px);
+//      margin: 50px 0 0 5px;
+//      padding: 0 0 15px;
+//    }
+//  }
+//}
 
 @media screen and (min-width: 511px) {
   .slide-modal {
@@ -292,23 +326,23 @@ body {
   }
 }
 
-
-@media screen and (max-width: 420px) {
- .header {
-   h1 {
-     .jess{
-       font-size: 30px;
-     }
-     .makes{
-       position: relative;
-       top: -3px;
-       margin: 0 0 0 -20px;
-       font-size: 27px;
-     }
-     .things{
-       margin: 0 0 0 -19px;
-       font-size: 30px;
-     }
-   }
- }
-}
+//
+//@media screen and (max-width: 420px) {
+// .header {
+//   h1 {
+//     .jess{
+//       font-size: 30px;
+//     }
+//     .makes{
+//       position: relative;
+//       top: -3px;
+//       margin: 0 0 0 -20px;
+//       font-size: 27px;
+//     }
+//     .things{
+//       margin: 0 0 0 -19px;
+//       font-size: 30px;
+//     }
+//   }
+// }
+//}
