@@ -28,16 +28,18 @@
   bottom: 6%;
   left: 0;
   width: 100%;
-  padding: 6px 0;
+  padding: 7px 0;
   font-size: 1.2rem;
+  font-size: 3.2vw;
   line-height: 1.2rem;
+  line-height: 3.2vw;
   color: #ffffff;
   text-align: center;
 }
 .post-icon .post-title:before, .post-icon .post-title:after {
   content: "";
   position: absolute;
-  z-index: 1000;
+  z-index: 2;
   top: 0;
   left: -15px;
   background: #39394a;
@@ -51,30 +53,33 @@
 
 .post-container {
   height: 100%;
-  padding-left: 47px;
+  padding-left: 15px;
   padding-right: 0;
   margin-bottom: 15px;
 }
 
 .post-header {
-  padding: 15px 15px 5px;
+  padding: 15px 10px 5px 15px;
 }
 .post-header .post-title {
   display: inline-block;
-  max-width: calc(100% - 50px);
   padding-right: 0;
-  font-size: 28px;
-  line-height: 28px;
+  font-size: 2rem;
+  font-size: 6vw;
+  line-height: 2rem;
+  line-height: 6vw;
 }
 .post-header .post-date {
   float: right;
   display: inline-block;
-  font-size: 28px;
-  line-height: 28px;
   padding-top: 1px;
-  padding-left: 0;
+  padding-left: 10px;
   color: #cfcfcf;
   text-align: right;
+  font-size: 2rem;
+  font-size: 6vw;
+  line-height: 2rem;
+  line-height: 6vw;
 }
 
 .post {
@@ -86,9 +91,6 @@
 .post .post-body {
   padding-right: 20px;
   padding-bottom: 45px;
-}
-.post .title {
-  font-size: 24px;
 }
 .post .post-subtitle {
   margin-top: 20px;
@@ -126,8 +128,59 @@
   max-width: 550px;
 }
 
+@media screen and (min-width: 600px) {
+  .post-icon .post-title {
+    font-size: 1.9rem;
+    line-height: 1.9rem;
+  }
+}
 @media screen and (min-width: 768px) {
+  .post-container {
+    padding-left: 47px;
+  }
+
   .post-body {
     padding-right: 40px;
+  }
+
+  .post-header .post-title, .post-header .post-date {
+    font-size: 2.75rem;
+    line-height: 2.75rem;
+  }
+}
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .post-icons {
+    padding: 0 20px;
+  }
+
+  .post-icon-container {
+    padding: 0 10px 15px;
+  }
+
+  .post-icon .post-title {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+  }
+
+  .post-header .post-title, .post-header .post-date {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+}
+@media screen and (min-width: 993px) {
+  .post-icon .post-title {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+}
+@media screen and (min-width: 1130px) {
+  .post .post-body {
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 1230px) {
+  .post-icon .post-title {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
   }
 }
