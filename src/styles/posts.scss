@@ -71,6 +71,7 @@
   .post-title{
     display: inline-block;
     padding-right: 0;
+    margin-top: 1px;
     font-size: 2rem;  //fallback
     font-size: 6vw;
     line-height: 2rem; //fallback
@@ -79,7 +80,7 @@
   .post-date{
     float: right;
     display: inline-block;
-    padding-top: 1px;
+    padding-top: 2px;
     padding-left: 10px;
     color: $title-text-main;
     text-align: right;
@@ -149,22 +150,25 @@
   }
 }
 
+@media screen and (min-width: 450px) {
+  .post-header {
+    .post-title, .post-date {
+      font-size: 5vw;
+      line-height: 5vw;
+    }
+  }
+}
+
 @media screen and (min-width: 600px) {
   .post-container {
     padding-left: 47px;
   }
-  
+
   .post-icon {
     .post-title {
       font-size: 1.9rem;
       line-height: 1.9rem;
     }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .post-body{
-    padding-right: 40px;
   }
 
   .post-header{
@@ -174,6 +178,12 @@
     }
   }
 
+}
+
+@media screen and (min-width: 768px) {
+  .post-body{
+    padding-right: 40px;
+  }
 }
 
 @media screen and (max-width: 767px) and (orientation:landscape) {

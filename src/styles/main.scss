@@ -139,7 +139,8 @@ body {
     float: none;
     position: absolute;
     left: 1px;
-    top: 30px;
+    top: 21px;
+    padding: 10px 0;
     z-index: 100;
     .glyphicon{
       font-size: 2rem;
@@ -207,7 +208,7 @@ body {
   .slide-modal{
     .close{
       left: 10px;
-      top: 30px;
+      top: 24px;
     }
   }
 }
@@ -294,6 +295,10 @@ body {
       .modal-header, .modal-body{
         max-width: 780px;
       }
+    }
+
+    .close{
+      top: 19px;
     }
   }
 }
