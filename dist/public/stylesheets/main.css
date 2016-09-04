@@ -193,6 +193,12 @@ body {
     font-size: 4rem;
   }
 }
+@media screen and (min-width: 600px) {
+  .slide-modal .close {
+    left: 10px;
+    top: 30px;
+  }
+}
 @media screen and (min-width: 768px) {
   .main {
     padding: 20px 0 0 40px;
@@ -269,10 +275,6 @@ body {
   }
   .slide-modal .custom-modal-dialog .modal-header, .slide-modal .custom-modal-dialog .modal-body {
     max-width: 780px;
-  }
-  .slide-modal .close {
-    left: 10px;
-    top: 30px;
   }
 }
 @media screen and (min-width: 868px) {

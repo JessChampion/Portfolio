@@ -150,6 +150,10 @@
 }
 
 @media screen and (min-width: 600px) {
+  .post-container {
+    padding-left: 47px;
+  }
+  
   .post-icon {
     .post-title {
       font-size: 1.9rem;
@@ -159,9 +163,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .post-container {
-    padding-left: 47px;
-  }
   .post-body{
     padding-right: 40px;
   }

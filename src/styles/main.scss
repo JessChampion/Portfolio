@@ -203,6 +203,15 @@ body {
   }
 }
 
+@media screen and (min-width: 600px) {
+  .slide-modal{
+    .close{
+      left: 10px;
+      top: 30px;
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
   .main{
     padding: 20px 0 0 40px;
@@ -285,11 +294,6 @@ body {
       .modal-header, .modal-body{
         max-width: 780px;
       }
-    }
-
-    .close{
-      left: 10px;
-      top: 30px;
     }
   }
 }
